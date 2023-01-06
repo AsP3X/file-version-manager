@@ -43,6 +43,9 @@ def removeAllBackupFiles(file_path):
     file_dir = os.path.dirname(file_path)
     file_name = os.path.basename(file_path)
 
+    if not file_dir:
+        file_dir = os.getcwd()
+
     test_file_path = os.path.join(file_dir, file_name + ".bak")
     if os.path.exists(test_file_path):
         try:
