@@ -5,7 +5,7 @@ import shutil
 import os
 import re
 
-version = "1.0.0"
+version = "1.0.1"
 
 def createParameterMapping(parameters):
     parameters = parameters[1:]
@@ -49,7 +49,7 @@ def removeAllBackupFiles(file_path):
             print(f"Unable to delete {test_file_path}")
 
     # remove all files with .bak or .bak-* suffix
-    pattern = re.compile(f"^{file_name}\.bak(-\d+)?$")
+    pattern = re.compile(f"^{file_name}\.bak-\d+$")
     for file in os.listdir(file_dir):
         if pattern.match(file):
             os.remove(os.path.join(file_dir, file))
