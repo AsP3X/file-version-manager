@@ -5,7 +5,7 @@ import shutil
 import os
 import re
 
-version = "1.0.2"
+version = "1.0.3"
 
 def createParameterMapping(parameters):
     parameters = parameters[1:]
