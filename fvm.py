@@ -5,6 +5,8 @@ import shutil
 import os
 import re
 
+version = "1.0.0"
+
 def createParameterMapping(parameters):
     parameters = parameters[1:]
     parameterMapping = []
@@ -26,6 +28,9 @@ def analyzeIfIsFile(object):
 
 def hasCleanupFlag(parameter):
     return "--cleanup" in parameter
+
+def hasVersionFlag(parameter):
+    return "--version" in parameter
 
 def removeAllBackupFiles(file_path):
     if not os.access(file_path, os.W_OK):
@@ -74,6 +79,9 @@ for parameter in parameterMap:
     # check if the parameter is the cleanup flag
     if hasCleanupFlag(parameter):
         cleanup_flag_present = True
+    if hasVersionFlag(parameter):
+        print(version)
+        sys.exit(0)
     elif analyzeIfIsFile(parameter):
         if cleanup_flag_present:
             removeAllBackupFiles(parameter)
