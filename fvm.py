@@ -5,7 +5,7 @@ import shutil
 import os
 import re
 
-version = "1.0.1"
+version = "1.0.2"
 
 def createParameterMapping(parameters):
     parameters = parameters[1:]
@@ -33,6 +33,9 @@ def hasVersionFlag(parameter):
     return "--version" in parameter
 
 def removeAllBackupFiles(file_path):
+    if not file_path:
+        print("No file path specified")
+        return
     if not os.access(file_path, os.W_OK):
         print(f"No write permissions for {file_path}")
         return
