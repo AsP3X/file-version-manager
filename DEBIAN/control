@@ -1,0 +1,5 @@
+Package: fvm
+Version: 1.0.3
+Architecture: all
+Maintainer: AsP3X <development@vorberg-webmail.de>
+Description: A simple file version manager
